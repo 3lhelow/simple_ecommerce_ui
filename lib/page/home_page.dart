@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ecommerce_ui/app_data.dart';
 
 import '../utils/best_selling.dart';
 import '../utils/categories.dart';
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // App Bar
+      // Custom App Bar
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -51,21 +52,16 @@ class _HomePageState extends State<HomePage> {
 
             SizedBox(
               height: 100,
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  Categories(icon: Icons.laptop_mac, title: "laptop"),
-
-                  Categories(icon: Icons.phone_iphone, title: "phone"),
-
-                  Categories(icon: Icons.keyboard, title: "keyboard"),
-
-                  Categories(icon: Icons.mouse, title: "mouse"),
-
-                  Categories(icon: Icons.speaker, title: "speaker"),
-
-                  Categories(icon: Icons.monitor, title: "monitor"),
-                ],
+                itemCount: AppData.categories.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final Map<String, dynamic> category = AppData.categories[index];
+                  return Categories(
+                    icon: category["icon"],
+                    title: category["title"],
+                  );
+                },
               ),
             ),
 
@@ -78,16 +74,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            GridView(
+            GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
+
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                mainAxisExtent: 250,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
               ),
-              children: [
-                BestSelling(image: "images/headphone.png"),
-                BestSelling(image: "images/watch.png"),
-              ],
+
+              itemCount: AppData.bestSelling.length,
+              itemBuilder: (BuildContext context, int index) {
+                final Map<String, dynamic> bestSelling = AppData.bestSelling[index];
+                return BestSelling(
+                  image: bestSelling["image"],
+                  title: bestSelling["title"],
+                  subtitle: bestSelling["subtitle"],
+                  price: bestSelling["price"],
+                );
+              },
             ),
           ],
         ),

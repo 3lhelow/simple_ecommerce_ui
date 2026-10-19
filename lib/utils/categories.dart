@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
-  late IconData icon;
-  late String title;
+  final IconData icon;
+  final String title;
 
-  Categories({super.key, required this.icon, required this.title});
+  const Categories({super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
