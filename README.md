@@ -6,9 +6,9 @@ This project is designed to learn and practice mobile app user interface develop
 
 ## Features
 
-- **Home Page**: Displays a modern layout with promotional banners and featured sections.
-- **Categories**: Organized product categories to easily browse items.
-- **Clean UI**: Simple and intuitive design focused on user experience.
+- **Search Bar**: Quick search functionality to find products easily.
+- **Product Categories**: Horizontal scrollable categories including laptops, phones, keyboards, and more.
+- **Best Selling Section**: Grid display showcasing top products.
 
 ## Purpose
 

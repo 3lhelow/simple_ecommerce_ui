@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/best_selling.dart';
 import '../utils/categories.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // App Bar
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -39,6 +41,7 @@ class _HomePageState extends State<HomePage> {
 
             const SizedBox(height: 30),
 
+            // Categories
             const Text(
               "Categories",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -46,16 +49,44 @@ class _HomePageState extends State<HomePage> {
 
             const SizedBox(height: 10),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            SizedBox(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Categories(icon: Icons.laptop_mac, title: "laptop"),
+
+                  Categories(icon: Icons.phone_iphone, title: "phone"),
+
+                  Categories(icon: Icons.keyboard, title: "keyboard"),
+
+                  Categories(icon: Icons.mouse, title: "mouse"),
+
+                  Categories(icon: Icons.speaker, title: "speaker"),
+
+                  Categories(icon: Icons.monitor, title: "monitor"),
+                ],
+              ),
+            ),
+
+            // Best Selling
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              child: const Text(
+                "Best Selling",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+
+            GridView(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
               children: [
-                Categories(icon: Icons.laptop_mac, title: "laptop"),
-
-                Categories(icon: Icons.phone, title: "phone"),
-
-                Categories(icon: Icons.keyboard, title: "keyboard"),
-
-                Categories(icon: Icons.mouse, title: "mouse"),
+                BestSelling(image: "images/headphone.png"),
+                BestSelling(image: "images/watch.png"),
               ],
             ),
           ],
