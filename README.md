@@ -1,17 +1,15 @@
-# simple_ecommerce_ui
+# Simple E-Commerce UI
 
-A new Flutter project.
+The first educational e-commerce store project! 
 
-## Getting Started
+This project is designed to learn and practice mobile app user interface development by building a clean and modern shopping experience.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Home Page**: Displays a modern layout with promotional banners and featured sections.
+- **Categories**: Organized product categories to easily browse items.
+- **Clean UI**: Simple and intuitive design focused on user experience.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Purpose
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is an educational project created to understand the fundamentals of e-commerce application design and layout structure.
