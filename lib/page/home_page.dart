@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_ecommerce_ui/app_data.dart';
 
 import '../utils/best_selling.dart';
+import '../utils/bottom_navigation.dart';
 import '../utils/categories.dart';
+import 'details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavigation(),
       // Custom App Bar
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -88,11 +91,21 @@ class _HomePageState extends State<HomePage> {
               itemCount: AppData.bestSelling.length,
               itemBuilder: (BuildContext context, int index) {
                 final Map<String, dynamic> bestSelling = AppData.bestSelling[index];
-                return BestSelling(
-                  image: bestSelling["image"],
-                  title: bestSelling["title"],
-                  subtitle: bestSelling["subtitle"],
-                  price: bestSelling["price"],
+                return InkWell(
+                  child: BestSelling(
+                    image: bestSelling["image"],
+                    title: bestSelling["title"],
+                    subtitle: bestSelling["subtitle"],
+                    price: (bestSelling["price"] as num).toDouble(),
+                  ),
+
+                  onTap: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>
+                          ItemsDetails(data: bestSelling),
+                      ),
+                    );
+                  },
                 );
               },
             ),

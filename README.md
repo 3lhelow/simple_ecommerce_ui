@@ -9,6 +9,7 @@ This project is designed to learn and practice mobile app user interface develop
 - **Search Bar**: Quick search functionality to find products easily.
 - **Product Categories**: Horizontal scrollable categories including laptops, phones, keyboards, and more.
 - **Best Selling Section**: Grid display showcasing top products.
+- **Product Details Page**: Dedicated screen to view detailed product information.
 
 ## Purpose
 
